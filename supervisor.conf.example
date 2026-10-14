@@ -1,0 +1,23 @@
+# ==============================================================================
+# 🌸 YENİÇİÇEK — SUPERVISOR ARKA PLAN İŞÇİSİ (QUEUE WORKER)
+# ==============================================================================
+# E-posta gönderimi, SMS bildirimleri ve görsel optimizasyonu için arka plan işçisi.
+# Kurulum (Ubuntu/Debian):
+#   sudo cp supervisor.conf.example /etc/supervisor/conf.d/yenicicek-worker.conf
+#   sudo supervisorctl reread
+#   sudo supervisorctl update
+#   sudo supervisorctl start yenicicek-worker:*
+# ==============================================================================
+
+[program:yenicicek-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /var/www/yenicicek/artisan queue:work --sleep=3 --tries=3 --max-time=3600
+autostart=true
+autorestart=true
+stopasgroup=true
+killasgroup=true
+user=www-data
+numprocs=2
+redirect_stderr=true
+stdout_logfile=/var/www/yenicicek/storage/logs/worker.log
+stopwaitsecs=3600

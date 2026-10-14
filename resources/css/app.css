@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Self-Hosted Ultra-Fast Figtree Font (Latin + Latin-Ext Türkçe Karakter Desteği: ğ, Ğ, ş, Ş, ı, İ, ç, Ç, ö, Ö, ü, Ü) */
+@font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 400 500;
+    font-display: swap;
+    src: url('/fonts/figtree-latin-400.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 400 500;
+    font-display: swap;
+    src: url('/fonts/figtree-latin-ext-400.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/figtree-latin-600.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/figtree-latin-ext-600.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 700 900;
+    font-display: swap;
+    src: url('/fonts/figtree-latin-700.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 700 900;
+    font-display: swap;
+    src: url('/fonts/figtree-latin-ext-700.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* FontAwesome font-display: swap (Google PageSpeed Optimizasyonu) */
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Font Awesome 6 Brands";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2") format("woff2");
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden !important;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+}
+
+@layer utilities {
+    .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .glass-dark {
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .text-gradient {
+        background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-amber {
+        background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Rich Editor & Ürün Açıklaması Boşluk / Satır Atlama Kuralları */
+.ql-editor {
+    white-space: pre-wrap !important;
+    font-size: 13px !important;
+    min-height: 180px;
+    line-height: 1.7 !important;
+}
+
+.ql-editor p {
+    margin-bottom: 0.85rem !important;
+}
+
+.ql-editor p:empty,
+.ql-editor p:has(br) {
+    min-height: 1.25rem !important;
+}
+
+.product-description-view {
+    line-height: 1.8 !important;
+    color: #334155;
+}
+
+.product-description-view p {
+    margin-bottom: 1rem !important;
+}
+
+.product-description-view p:empty,
+.product-description-view br {
+    display: inline-block;
+    content: "";
+    height: 1rem;
+}
+
+.product-description-view ul {
+    list-style-type: disc !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.product-description-view ol {
+    list-style-type: decimal !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.product-description-view li {
+    margin-bottom: 0.35rem !important;
+}
+
+.product-description-view h1,
+.product-description-view h2,
+.product-description-view h3,
+.product-description-view h4 {
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+/* Continuous Running Marquee Banner (Sürekli Akan Şerit) */
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.animate-marquee {
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
+    animation: ticker 25s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* 🌸 %50 Daha Büyük Tipografi Ölçeklemesi (Sadece Ön Yüz İçin) */
+.frontend-body .text-\[8px\], :not(.admin-panel) .text-\[8px\] {
+    font-size: 12px !important;
+}
+
+.frontend-body .text-\[9px\], :not(.admin-panel) .text-\[9px\] {
+    font-size: 13.5px !important;
+}
+
+.frontend-body .text-\[10px\], :not(.admin-panel) .text-\[10px\] {
+    font-size: 15px !important;
+}
+
+.frontend-body .text-\[11px\], :not(.admin-panel) .text-\[11px\] {
+    font-size: 16.5px !important;
+}
+
+/* 🏢 Admin Paneli Standart ve Kompakt Tipografi Zırhı */
+body.admin-panel,
+.admin-panel {
+    font-size: 14px !important;
+}
+
+.admin-panel .text-xs,
+.admin-panel [class*="text-xs"] {
+    font-size: 12px !important;
+    line-height: 16px !important;
+}
+
+.admin-panel .text-sm,
+.admin-panel [class*="text-sm"] {
+    font-size: 14px !important;
+    line-height: 20px !important;
+}
+
+.admin-panel .text-base,
+.admin-panel [class*="text-base"] {
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+
+.admin-panel .text-lg,
+.admin-panel [class*="text-lg"] {
+    font-size: 18px !important;
+    line-height: 26px !important;
+}
+
+.admin-panel .text-xl,
+.admin-panel [class*="text-xl"] {
+    font-size: 20px !important;
+    line-height: 28px !important;
+}
+
+.admin-panel .text-2xl,
+.admin-panel [class*="text-2xl"] {
+    font-size: 22px !important;
+    line-height: 28px !important;
+}
+
+.admin-panel .text-3xl,
+.admin-panel [class*="text-3xl"] {
+    font-size: 26px !important;
+    line-height: 32px !important;
+}
+
+.admin-panel .text-4xl,
+.admin-panel [class*="text-4xl"] {
+    font-size: 30px !important;
+    line-height: 36px !important;
+}
+
+.admin-panel .text-\[8px\] { font-size: 8px !important; line-height: 10px !important; }
+.admin-panel .text-\[9px\] { font-size: 9px !important; line-height: 12px !important; }
+.admin-panel .text-\[10px\] { font-size: 10px !important; line-height: 14px !important; }
+.admin-panel .text-\[11px\] { font-size: 11px !important; line-height: 15px !important; }
+

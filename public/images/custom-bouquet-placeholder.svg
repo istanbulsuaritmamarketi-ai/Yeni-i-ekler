@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradBouquet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1f2"/>
+      <stop offset="50%" stop-color="#fdf2f8"/>
+      <stop offset="100%" stop-color="#fce7f3"/>
+    </linearGradient>
+    <linearGradient id="wrapperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fda4af"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <filter id="bqShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#881337" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="450" rx="36" fill="url(#bgGradBouquet)"/>
+
+  <!-- Subtle floral pattern ring in background -->
+  <circle cx="300" cy="225" r="140" fill="#ffffff" opacity="0.6"/>
+  <circle cx="300" cy="225" r="165" fill="none" stroke="#fbcfe8" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <g filter="url(#bqShadow)" transform="translate(300, 220)">
+    <!-- Kraft/Paper Wrapper -->
+    <path d="M -70 110 L 70 110 L 100 20 L -100 20 Z" fill="url(#wrapperGrad)"/>
+    <path d="M 0 110 L 0 20" stroke="#ffffff" stroke-opacity="0.3" stroke-width="2"/>
+    
+    <!-- Ribbon Bow -->
+    <path d="M 0 50 C -25 35 -35 55 -5 55 C -25 70 -5 75 0 55 C 5 75 25 70 5 55 C 35 55 25 35 0 50 Z" fill="#ffffff"/>
+    <circle cx="0" cy="53" r="6" fill="#f43f5e"/>
+    <!-- Ribbon tails -->
+    <path d="M -4 58 Q -15 90 -25 105" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 4 58 Q 15 90 25 105" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Greenery foliage -->
+    <path d="M -70 10 C -100 -20 -80 -60 -40 -40 Z" fill="#10b981" opacity="0.9"/>
+    <path d="M 70 10 C 100 -20 80 -60 40 -40 Z" fill="#10b981" opacity="0.9"/>
+    <path d="M 0 -20 C -20 -70 0 -90 10 -60 Z" fill="#059669"/>
+
+    <!-- Tulips & Roses in Bouquet -->
+    <!-- Left Tulip (Blue) -->
+    <g transform="translate(-45, -20) rotate(-15) scale(0.65)">
+      <path d="M 0 20 C -25 10 -40 -15 -30 -45 C -10 -35 0 -10 0 20 Z" fill="#2563eb"/>
+      <path d="M 0 20 C 25 10 40 -15 30 -45 C 10 -35 0 -10 0 20 Z" fill="#2563eb"/>
+      <path d="M 0 15 C -15 -15 -12 -55 0 -65 C 12 -55 15 -15 0 15 Z" fill="#3b82f6"/>
+    </g>
+
+    <!-- Right Tulip (Rose) -->
+    <g transform="translate(45, -20) rotate(15) scale(0.65)">
+      <path d="M 0 20 C -25 10 -40 -15 -30 -45 C -10 -35 0 -10 0 20 Z" fill="#e11d48"/>
+      <path d="M 0 20 C 25 10 40 -15 30 -45 C 10 -35 0 -10 0 20 Z" fill="#e11d48"/>
+      <path d="M 0 15 C -15 -15 -12 -55 0 -65 C 12 -55 15 -15 0 15 Z" fill="#f43f5e"/>
+    </g>
+
+    <!-- Center Blossom (Royal Blue & Rose) -->
+    <g transform="translate(0, -35) scale(0.85)">
+      <path d="M 0 20 C -25 10 -40 -15 -30 -45 C -10 -35 0 -10 0 20 Z" fill="#1e3a8a"/>
+      <path d="M 0 20 C 25 10 40 -15 30 -45 C 10 -35 0 -10 0 20 Z" fill="#1e3a8a"/>
+      <path d="M 0 15 C -15 -15 -12 -55 0 -65 C 12 -55 15 -15 0 15 Z" fill="#f43f5e"/>
+    </g>
+  </g>
+
+  <!-- Title Badge -->
+  <g transform="translate(300, 395)">
+    <rect x="-110" y="-18" width="220" height="36" rx="18" fill="#ffffff" stroke="#fbcfe8" stroke-width="1.5" opacity="0.95"/>
+    <text x="0" y="6" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#e11d48" letter-spacing="1">
+      ÖZEL TASARIM ATÖLYESİ
+    </text>
+  </g>
+</svg>

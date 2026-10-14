@@ -1,0 +1,75 @@
+# ==============================================================================
+# 🌸 YENİÇİÇEK — NGINX VIRTUAL HOST VE CANLI SUNUCU YAPILANDIRMASI
+# ==============================================================================
+# Kurulum (Ubuntu/Debian):
+#   sudo cp nginx.conf.example /etc/nginx/sites-available/yenicicek.conf
+#   sudo ln -s /etc/nginx/sites-available/yenicicek.conf /etc/nginx/sites-enabled/
+#   sudo nginx -t && sudo systemctl reload nginx
+# ==============================================================================
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name yenicicek.com www.yenicicek.com;
+    return 301 https://yenicicek.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name yenicicek.com;
+
+    # SSL Sertifikaları (Let's Encrypt Örneği)
+    # ssl_certificate /etc/letsencrypt/live/yenicicek.com/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/yenicicek.com/privkey.pem;
+    # include /etc/letsencrypt/options-ssl-nginx.conf;
+    # ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    # Proje Kök Dizini (Mutlaka 'public' klasörünü göstermelidir!)
+    root /var/www/yenicicek/public;
+    index index.php index.html;
+
+    charset utf-8;
+
+    # Fotoğraf Yükleme Limiti (Atölye kamerası ve ürün görselleri için)
+    client_max_body_size 64M;
+
+    # Güvenlik Başlıkları
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+
+    # Ana Rota Yönlendirmesi
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    # Statik Dosyalar & Uzun Ömürlü Önbellekleme (Lighthouse 100/100)
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|webp|woff|woff2|ttf|otf)$ {
+        expires 1y;
+        add_header Cache-Control "public, no-transform, immutable";
+        access_log off;
+        log_not_found off;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    # PHP-FPM Yapılandırması (Sunucunuzdaki PHP sürümüne göre socketi kontrol edin)
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+        # fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_hide_header X-Powered-By;
+        fastcgi_read_timeout 300;
+    }
+
+    # Gizli Sistem Dosyalarına Erişimi Engelle (.env, .git vb.)
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
