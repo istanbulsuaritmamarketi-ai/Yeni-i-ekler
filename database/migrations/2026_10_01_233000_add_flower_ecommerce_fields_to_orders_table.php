@@ -55,7 +55,7 @@ return new class extends Migration
                 $table->string('item_type')->default('product')->after('product_id');
             }
             if (! Schema::hasColumn('order_items', 'options')) {
-                $table->json('options')->nullable()->after('total');
+                $table->json('options')->nullable()->after('unit_price');
             }
         });
 
